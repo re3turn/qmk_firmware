@@ -79,7 +79,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define LTAD_GUI LT(_ADJUST, KC_RGUI)
 #define LTLO_SPC LT(_LOWER, KC_SPC)
 #define LTRA_ENT LT(_RAISE, KC_ENT)
-#define ALTT_BSP ALT_T(KC_BSPC)
 #define CLTT_ESC CTL_T(KC_ESC)
 #define SFTT_TAB SFT_T(KC_TAB)
 #define GUI_TAB LGUI(KC_TAB)
@@ -105,8 +104,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |   B  |   [  |   ]  |   N  |   M  |   ,  |   .  |   /  |  -   |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
-   * | Ctrl | GUI  | Alt  | KANA | Esc/ |Space/| Tab/ | BS/  |Enter/| Del  | GUI+ | Alt  | GUI/ |  \   |
-   * |      |      |      |      | Ctrl |~Lower| Shift| Alt  |~Raise|      | Tab  |      |~Adjst|      |
+   * | Ctrl | GUI  | Alt  | KANA | Esc/ |Space/| Tab/ | BS   |Enter/| Del  | GUI+ | Alt  | GUI/ |  \   |
+   * |      |      |      |      | Ctrl |~Lower| Shift|      |~Raise|      | Tab  |      |~Adjst|      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_QWERTY] = LAYOUT( \
@@ -114,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,     KC_T,                         KC_Y,     KC_U,   KC_I,    KC_O,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_S,    KC_D, KC_F,     KC_G,                         KC_H,     KC_J,   KC_K,    KC_L,    TD_SCLN,  TD_QUOT, \
       KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA, CLTT_ESC, LTLO_SPC, SFTT_TAB, ALTT_BSP, LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA, CLTT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Colemak
@@ -136,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,  KC_Q,    KC_W,    KC_F, KC_P,     KC_G,                         KC_J,     KC_L,   KC_U,    KC_Y,    TD_SCLN,  KC_EQL, \
       KC_LALT, KC_A,    KC_R,    KC_S, KC_T,     KC_D,                         KC_H,     KC_N,   KC_E,    KC_I,    KC_O,     TD_QUOT, \
       KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA, CLTT_ESC, LTLO_SPC, SFTT_TAB, ALTT_BSP, LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA, CLTT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Eucalyn
@@ -158,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,  KC_SLSH, KC_COMM, KC_DOT, KC_F,     KC_Q,                         KC_M,     KC_R,   KC_D,    KC_Y,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_O,    KC_E,   KC_I,     KC_U,                         KC_G,     KC_T,   KC_K,    KC_S,    KC_N,     TD_QUOT, \
       KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,     KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     KC_H,   KC_J,    KC_L,    TD_SCLN,  TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA,   CLTT_ESC, LTLO_SPC, SFTT_TAB, ALTT_BSP, LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA,   CLTT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Lower
@@ -245,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV,  KC_Q,    KC_W,    KC_E, KC_R,     KC_T,                         KC_Y,     KC_U,   KC_I,    KC_O,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_S,    KC_D, KC_F,     KC_G,                         KC_H,     KC_J,   KC_K,    KC_L,    TD_SCLN,  TD_QUOT, \
       KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA, CLTT_ESC, LTLO_SPC, SFTT_TAB, ALTT_BSP, LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA, CLTT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Colemak
@@ -264,7 +263,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV,  KC_Q,    KC_W,    KC_F, KC_P,     KC_G,                         KC_J,     KC_L,   KC_U,    KC_Y,    TD_SCLN,  KC_EQL, \
       KC_LALT, KC_A,    KC_R,    KC_S, KC_T,     KC_D,                         KC_H,     KC_N,   KC_E,    KC_I,    KC_O,     TD_QUOT, \
       KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA, CLTT_ESC, LTLO_SPC, SFTT_TAB, ALTT_BSP, LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA, CLTT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Eucalyn
@@ -283,7 +282,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TAB,  KC_SLSH, KC_COMM, KC_DOT, KC_F,     KC_Q,                         KC_M,     KC_R,   KC_D,    KC_Y,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_O,    KC_E,   KC_I,     KC_U,                         KC_G,     KC_T,   KC_K,    KC_S,    KC_N,     TD_QUOT, \
       KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,     KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     KC_H,   KC_J,    KC_L,    TD_SCLN,  TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA,   CLTT_ESC, LTLO_SPC, SFTT_TAB, ALTT_BSP, LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA,   CLTT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Lower

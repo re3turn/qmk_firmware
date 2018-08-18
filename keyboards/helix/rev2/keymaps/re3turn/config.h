@@ -63,7 +63,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define PREVENT_STUCK_MODIFIERS
 #define PERMISSIVE_HOLD
-#define TAPPING_TERM 100
+#define TAPPING_TERM 150
 
 // Helix keyboard RGB LED support
 //#define RGBLIGHT_ANIMATIONS : see ./rules.mk: LED_ANIMATIONS = yes or no
