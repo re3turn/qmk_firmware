@@ -15,10 +15,19 @@ extern keymap_config_t keymap_config;
 #define LTSY_SPC LT(SYMB, KC_SPC)
 #define LTME_ENT LT(META, KC_ENT)
 #define IME LALT(KC_GRV)
-#define CLTT_ESC CTL_T(KC_ESC)
-#define CLTT_BSL RCTL_T(KC_BSLS)
+#define CTLT_ESC CTL_T(KC_ESC)
 #define SFTT_TAB SFT_T(KC_TAB)
 #define GUI_TAB LGUI(KC_TAB)
+
+#define CTLT_V CTL_T(KC_V)
+#define SFTT_C SFT_T(KC_C)
+#define ALTT_X ALT_T(KC_X)
+#define GUIT_Z GUI_T(KC_Z)
+
+#define CTLT_M RCTL_T(KC_M)
+#define SFTT_COM RSFT_T(KC_COMM)
+#define ALTT_DOT RALT_T(KC_DOT)
+#define GUIT_SLS RGUI_T(KC_SLSH)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -29,17 +38,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * | Alt  |   A  |   S  |   D  |   F  |   G  |  (   |   |  )   |   H  |   J  |   K  |   L  |   ;  |  '   |
  * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |  {   |   |  }   |   N  |   M  |   ,  |   .  |   /  |  -   |
+ * |      | /GUI | /Alt | /Sft | /Ctl |      |      |   |      |      | /Ctl | /Sft | /Alt | /GUI |      |
  * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
  * | Ctrl | GUI  | Alt  | IME  | Esc/ |Space/| Tab/ |   | BS   |Enter/| Del  | GUI+ | Alt  | GUI  |  \   |
- * |      |      |      |      | Ctrl |~SYMB | Shift|   |      |~META |      | Tab  |      |      |      |
+ * |      |      |      |      | Ctl  |~SYMB | Sft  |   |      |~META |      | Tab  |      |      |      |
  * `------------------------------------------------'   `------------------------------------------------'
  */
 
 [BASE] = LAYOUT( \
-  KC_GRV,  KC_Q,    KC_W,    KC_E, KC_R,     KC_T,     KC_LBRC,  KC_RBRC,  KC_Y,     KC_U,   KC_I,    KC_O,    KC_P,    KC_EQL, \
-  KC_LALT, KC_A,    KC_S,    KC_D, KC_F,     KC_G,     KC_LPRN,  KC_RPRN,  KC_H,     KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
-  KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     KC_LCBR,  KC_RCBR,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_MINS, \
-  KC_LCTL, KC_LGUI, KC_LALT, IME,  CLTT_ESC, LTSY_SPC, SFTT_TAB, KC_BSPC,  LTME_ENT, KC_DEL, GUI_TAB, KC_RALT, KC_RGUI, KC_BSLS \
+  KC_GRV,  KC_Q,    KC_W,    KC_E,   KC_R,     KC_T,     KC_LBRC,  KC_RBRC, KC_Y,     KC_U,   KC_I,     KC_O,     KC_P,     KC_EQL, \
+  KC_LALT, KC_A,    KC_S,    KC_D,   KC_F,     KC_G,     KC_LPRN,  KC_RPRN, KC_H,     KC_J,   KC_K,     KC_L,     KC_SCLN,  KC_QUOT, \
+  KC_LSFT, GUIT_Z,  ALTT_X,  SFTT_C, CTLT_V,   KC_B,     KC_LCBR,  KC_RCBR, KC_N,     CTLT_M, SFTT_COM, ALTT_DOT, GUIT_SLS, KC_MINS, \
+  KC_LCTL, KC_LGUI, KC_LALT, IME,    CTLT_ESC, LTSY_SPC, SFTT_TAB, KC_BSPC, LTME_ENT, KC_DEL, GUI_TAB,  KC_RALT,  KC_RGUI,  KC_BSLS \
 ),
 
 /* META
