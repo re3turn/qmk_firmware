@@ -85,24 +85,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define TD_QUOT TD(TD_QUOT_DQT)
 #define TD_MINS TD(TD_MINS_UNDS)
 
-//Qwerty, Colemak, Eucalyn
-#define CTLT_V CTL_T(KC_V)
-#define SFTT_C SFT_T(KC_C)
-#define ALTT_X ALT_T(KC_X)
-#define GUIT_Z GUI_T(KC_Z)
-
-//Qwerty, Colemak
-#define CTLT_M RCTL_T(KC_M)
-#define SFTT_COM RSFT_T(KC_COMM)
-#define ALTT_DOT RALT_T(KC_DOT)
-#define GUIT_SLS RGUI_T(KC_SLSH)
-
-//Eucalyn
-#define CTLT_H RCTL_T(KC_H)
-#define SFTT_J RSFT_T(KC_J)
-#define ALTT_L RALT_T(KC_L)
-#define GUIT_SCL RGUI_T(TD_SCLN)
-
 //Macros
 #define M_SAMPLE M(KC_SAMPLEMACRO)
 
@@ -118,18 +100,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * | Alt  |   A  |   S  |   D  |   F  |   G  |             |   H  |   J  |   K  |   L  |   ;  |  '   |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |   B  |   [  |   ]  |   N  |   M  |   ,  |   .  |   /  |  -   |
-   * |      | /GUI | /Alt | /Sft | /Ctl |      |      |      |      | /Ctl | /Sft | /Alt | /GUI |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Ctrl | GUI  | Alt  | KANA | Esc/ |Space/| Tab/ | BS   |Enter/| Del  | GUI+ | Alt  | GUI/ |  \   |
    * |      |      |      |      | Ctrl |~Lower| Shift|      |~Raise|      | Tab  |      |~Adjst|      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_QWERTY] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,   KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,     KC_9,     KC_0,     TD_MINS, \
-      KC_TAB,  KC_Q,    KC_W,    KC_E,   KC_R,     KC_T,                         KC_Y,     KC_U,   KC_I,     KC_O,     KC_P,     KC_EQL, \
-      KC_LALT, KC_A,    KC_S,    KC_D,   KC_F,     KC_G,                         KC_H,     KC_J,   KC_K,     KC_L,     TD_SCLN,  TD_QUOT, \
-      KC_LSFT, GUIT_Z,  ALTT_X,  SFTT_C, CTLT_V,   KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     CTLT_M, SFTT_COM, ALTT_DOT, GUIT_SLS, TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA,   CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB,  KC_RALT,  LTAD_GUI, KC_BSLS \
+      KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     TD_MINS, \
+      KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,     KC_T,                         KC_Y,     KC_U,   KC_I,    KC_O,    KC_P,     KC_EQL, \
+      KC_LALT, KC_A,    KC_S,    KC_D, KC_F,     KC_G,                         KC_H,     KC_J,   KC_K,    KC_L,    TD_SCLN,  TD_QUOT, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA, CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Colemak
@@ -141,18 +122,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * | Alt  |   A  |   R  |   S  |   T  |   D  |             |   H  |   N  |   E  |   I  |   O  |  '   |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |   B  |   [  |   ]  |   K  |   M  |   ,  |   .  |   /  |  -   |
-   * |      | /GUI | /Alt | /Sft | /Ctl |      |      |      |      | /Ctl | /Sft | /Alt | /GUI |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Ctrl | GUI  | Alt  | KANA | Esc/ |Space/| Tab/ | BS/  |Enter/| Del  | GUI+ | Alt  | GUI/ |  \   |
    * |      |      |      |      | Ctrl |~Lower| Shift| Alt  |~Raise|      | Tab  |      |~Adjst|      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_COLEMAK] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,   KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,     KC_9,     KC_0,     TD_MINS, \
-      KC_TAB,  KC_Q,    KC_W,    KC_F,   KC_P,     KC_G,                         KC_J,     KC_L,   KC_U,     KC_Y,     TD_SCLN,  KC_EQL, \
-      KC_LALT, KC_A,    KC_R,    KC_S,   KC_T,     KC_D,                         KC_H,     KC_N,   KC_E,     KC_I,     KC_O,     TD_QUOT, \
-      KC_LSFT, GUIT_Z,  ALTT_X,  SFTT_C, CTLT_V,   KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     CTLT_M, SFTT_COM, ALTT_DOT, GUIT_SLS, TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA,   CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB,  KC_RALT,  LTAD_GUI, KC_BSLS \
+      KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     TD_MINS, \
+      KC_TAB,  KC_Q,    KC_W,    KC_F, KC_P,     KC_G,                         KC_J,     KC_L,   KC_U,    KC_Y,    TD_SCLN,  KC_EQL, \
+      KC_LALT, KC_A,    KC_R,    KC_S, KC_T,     KC_D,                         KC_H,     KC_N,   KC_E,    KC_I,    KC_O,     TD_QUOT, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA, CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Eucalyn
@@ -164,7 +144,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * | Alt  |   A  |   O  |   E  |   I  |   U  |             |   G  |   T  |   K  |   S  |   N  |  "   |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |   W  |   [  |   ]  |   B  |   H  |   J  |   L  |   ;  |  -   |
-   * |      | /GUI | /Alt | /Sft | /Ctl |      |      |      |      | /Ctl | /Sft | /Alt | /GUI |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Ctrl | GUI  | Alt  | KANA | Esc/ |Space/| Tab/ | BS/  |Enter/| Del  | GUI+ | Alt  | GUI/ |  \   |
    * |      |      |      |      | Ctrl |~Lower| Shift| Alt  |~Raise|      | Tab  |      |~Adjst|      |
@@ -174,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_GRV,  KC_1,    KC_2,    KC_3,   KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     TD_MINS, \
       KC_TAB,  KC_SLSH, KC_COMM, KC_DOT, KC_F,     KC_Q,                         KC_M,     KC_R,   KC_D,    KC_Y,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_O,    KC_E,   KC_I,     KC_U,                         KC_G,     KC_T,   KC_K,    KC_S,    KC_N,     TD_QUOT, \
-      KC_LSFT, GUIT_Z,  ALTT_X,  SFTT_C, CTLT_V,   KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     CTLT_H, SFTT_J,  ALTT_L,  GUIT_SCL, TD_MINS, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,     KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     KC_H,   KC_J,    KC_L,    TD_SCLN,  TD_MINS, \
       KC_LCTL, KC_LGUI, KC_LALT, KANA,   CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
@@ -253,17 +232,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * | Alt  |   A  |   S  |   D  |   F  |   G  |             |   H  |   J  |   K  |   L  |   ;  |  '   |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |   B  |   [  |   ]  |   N  |   M  |   ,  |   .  |   /  |  -   |
-   * |      | /GUI | /Alt | /Sft | /Ctl |      |      |      |      | /Ctl | /Sft | /Alt | /GUI |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Ctrl | GUI  | Alt  | KANA | Esc/ |Space/| Tab/ | BS/  |Enter/| Del  | GUI+ | Alt  | GUI/ |  \   |
    * |      |      |      |      | Ctrl |~Lower| Shift| Alt  |~Raise|      | Tab  |      |~Adjst|      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_QWERTY] = LAYOUT( \
-      KC_GRV,  KC_Q,    KC_W,    KC_E,   KC_R,     KC_T,                         KC_Y,     KC_U,   KC_I,     KC_O,     KC_P,     KC_EQL, \
-      KC_LALT, KC_A,    KC_S,    KC_D,   KC_F,     KC_G,                         KC_H,     KC_J,   KC_K,     KC_L,     TD_SCLN,  TD_QUOT, \
-      KC_LSFT, GUIT_Z,  ALTT_X,  SFTT_C, CTLT_V,   KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     CTLT_M, SFTT_COM, ALTT_DOT, GUIT_SLS, TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA,   CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB,  KC_RALT,  LTAD_GUI, KC_BSLS \
+      KC_GRV,  KC_Q,    KC_W,    KC_E, KC_R,     KC_T,                         KC_Y,     KC_U,   KC_I,    KC_O,    KC_P,     KC_EQL, \
+      KC_LALT, KC_A,    KC_S,    KC_D, KC_F,     KC_G,                         KC_H,     KC_J,   KC_K,    KC_L,    TD_SCLN,  TD_QUOT, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA, CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Colemak
@@ -273,17 +251,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * | Alt  |   A  |   R  |   S  |   T  |   D  |             |   H  |   N  |   E  |   I  |   O  |  '   |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |   B  |   [  |   ]  |   K  |   M  |   ,  |   .  |   /  |  -   |
-   * |      | /GUI | /Alt | /Sft | /Ctl |      |      |      |      | /Ctl | /Sft | /Alt | /GUI |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Ctrl | GUI  | Alt  | KANA | Esc/ |Space/| Tab/ | BS/  |Enter/| Del  | GUI+ | Alt  | GUI/ |  \   |
    * |      |      |      |      | Ctrl |~Lower| Shift| Alt  |~Raise|      | Tab  |      |~Adjst|      |
    * `-------------------------------------------------------------------------------------------------'
    */
   [_COLEMAK] = LAYOUT( \
-      KC_GRV,  KC_Q,    KC_W,    KC_F,   KC_P,     KC_G,                         KC_J,     KC_L,   KC_U,     KC_Y,     TD_SCLN,  KC_EQL, \
-      KC_LALT, KC_A,    KC_R,    KC_S,   KC_T,     KC_D,                         KC_H,     KC_N,   KC_E,     KC_I,     KC_O,     TD_QUOT, \
-      KC_LSFT, GUIT_Z,  ALTT_X,  SFTT_C, CTLT_V,   KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     CTLT_M, SFTT_COM, ALTT_DOT, GUIT_SLS, TD_MINS, \
-      KC_LCTL, KC_LGUI, KC_LALT, KANA,   CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB,  KC_RALT,  LTAD_GUI, KC_BSLS \
+      KC_GRV,  KC_Q,    KC_W,    KC_F, KC_P,     KC_G,                         KC_J,     KC_L,   KC_U,    KC_Y,    TD_SCLN,  KC_EQL, \
+      KC_LALT, KC_A,    KC_R,    KC_S, KC_T,     KC_D,                         KC_H,     KC_N,   KC_E,    KC_I,    KC_O,     TD_QUOT, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
+      KC_LCTL, KC_LGUI, KC_LALT, KANA, CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
   /* Eucalyn
@@ -293,7 +270,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * | Alt  |   A  |   O  |   E  |   I  |   U  |             |   G  |   T  |   K  |   S  |   N  |  "   |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Shift|   Z  |   X  |   C  |   V  |   W  |   [  |   ]  |   B  |   H  |   J  |   L  |   ;  |  -   |
-   * |      | /GUI | /Alt | /Sft | /Ctl |      |      |      |      | /Ctl | /Sft | /Alt | /GUI |      |
    * |------+------+------+------+------+------+------+------+------+------+------+------+------+------|
    * | Ctrl | GUI  | Alt  | KANA | Esc/ |Space/| Tab/ | BS/  |Enter/| Del  | GUI+ | Alt  | GUI/ |  \   |
    * |      |      |      |      | Ctrl |~Lower| Shift| Alt  |~Raise|      | Tab  |      |~Adjst|      |
@@ -302,7 +278,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_EUCALYN] = LAYOUT( \
       KC_TAB,  KC_SLSH, KC_COMM, KC_DOT, KC_F,     KC_Q,                         KC_M,     KC_R,   KC_D,    KC_Y,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_O,    KC_E,   KC_I,     KC_U,                         KC_G,     KC_T,   KC_K,    KC_S,    KC_N,     TD_QUOT, \
-      KC_LSFT, GUIT_Z,  ALTT_X,  SFTT_C, CTLT_V,   KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     CTLT_H, SFTT_J,  ALTT_L,  GUIT_SCL, TD_MINS, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,     KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     KC_H,   KC_J,    KC_L,    TD_SCLN,  TD_MINS, \
       KC_LCTL, KC_LGUI, KC_LALT, KANA,   CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
