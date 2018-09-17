@@ -30,8 +30,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #define PREVENT_STUCK_MODIFIERS
-#define PERMISSIVE_HOLD
-#define TAPPING_TERM 150
+#define TAPPING_TERM 200
 
 // if you need more program area, try uncomment follow line
 //#include "serial_config_simpleapi.h"
