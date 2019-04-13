@@ -57,7 +57,6 @@ enum {
   TD_RBRC_RCBR,
   TD_SCLN_COLN,
   TD_QUOT_DQT,
-  TD_MINS_UNDS,
 };
 
 // Tap Dance Definitions
@@ -66,7 +65,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
   [TD_RBRC_RCBR]  = ACTION_TAP_DANCE_DOUBLE(KC_RBRC, KC_RCBR),
   [TD_SCLN_COLN]  = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
   [TD_QUOT_DQT]  = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQT),
-  [TD_MINS_UNDS]  = ACTION_TAP_DANCE_DOUBLE(KC_MINS, KC_UNDS),
 };
 
 // Fillers to make layering more clear
@@ -83,7 +81,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define TD_RBRC TD(TD_RBRC_RCBR)
 #define TD_SCLN TD(TD_SCLN_COLN)
 #define TD_QUOT TD(TD_QUOT_DQT)
-#define TD_MINS TD(TD_MINS_UNDS)
 
 //Macros
 #define M_SAMPLE M(KC_SAMPLEMACRO)
@@ -106,10 +103,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_QWERTY] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     TD_MINS, \
+      KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     KC_MINS, \
       KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,     KC_T,                         KC_Y,     KC_U,   KC_I,    KC_O,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_S,    KC_D, KC_F,     KC_G,                         KC_H,     KC_J,   KC_K,    KC_L,    TD_SCLN,  TD_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  KC_MINS, \
       KC_LCTL, KC_LGUI, KC_LALT, KANA, CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
@@ -128,10 +125,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_COLEMAK] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     TD_MINS, \
+      KC_GRV,  KC_1,    KC_2,    KC_3, KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     KC_MINS, \
       KC_TAB,  KC_Q,    KC_W,    KC_F, KC_P,     KC_G,                         KC_J,     KC_L,   KC_U,    KC_Y,    TD_SCLN,  KC_EQL, \
       KC_LALT, KC_A,    KC_R,    KC_S, KC_T,     KC_D,                         KC_H,     KC_N,   KC_E,    KC_I,    KC_O,     TD_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  KC_MINS, \
       KC_LCTL, KC_LGUI, KC_LALT, KANA, CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
@@ -150,10 +147,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_EUCALYN] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,   KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     TD_MINS, \
+      KC_GRV,  KC_1,    KC_2,    KC_3,   KC_4,     KC_5,                         KC_6,     KC_7,   KC_8,    KC_9,    KC_0,     KC_MINS, \
       KC_TAB,  KC_SLSH, KC_COMM, KC_DOT, KC_F,     KC_Q,                         KC_M,     KC_R,   KC_D,    KC_Y,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_O,    KC_E,   KC_I,     KC_U,                         KC_G,     KC_T,   KC_K,    KC_S,    KC_N,     TD_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,     KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     KC_H,   KC_J,    KC_L,    TD_SCLN,  TD_MINS, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,     KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     KC_H,   KC_J,    KC_L,    TD_SCLN,  KC_MINS, \
       KC_LCTL, KC_LGUI, KC_LALT, KANA,   CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
@@ -193,7 +190,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
   [_RAISE] = LAYOUT( \
       KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_UNDS, \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    TD_MINS, \
+      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, \
       _______, KC_PSCR, KC_PGUP, KC_HOME, KC_END,  KC_PGDN,                   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F11,  KC_F12,  \
       _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_LPRN, KC_RPRN, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______, \
       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
@@ -240,7 +237,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT( \
       KC_GRV,  KC_Q,    KC_W,    KC_E, KC_R,     KC_T,                         KC_Y,     KC_U,   KC_I,    KC_O,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_S,    KC_D, KC_F,     KC_G,                         KC_H,     KC_J,   KC_K,    KC_L,    TD_SCLN,  TD_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  KC_MINS, \
       KC_LCTL, KC_LGUI, KC_LALT, KANA, CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
@@ -259,7 +256,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_COLEMAK] = LAYOUT( \
       KC_GRV,  KC_Q,    KC_W,    KC_F, KC_P,     KC_G,                         KC_J,     KC_L,   KC_U,    KC_Y,    TD_SCLN,  KC_EQL, \
       KC_LALT, KC_A,    KC_R,    KC_S, KC_T,     KC_D,                         KC_H,     KC_N,   KC_E,    KC_I,    KC_O,     TD_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  TD_MINS, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     TD_LBRC,  TD_RBRC,  KC_K,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH,  KC_MINS, \
       KC_LCTL, KC_LGUI, KC_LALT, KANA, CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
@@ -278,7 +275,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_EUCALYN] = LAYOUT( \
       KC_TAB,  KC_SLSH, KC_COMM, KC_DOT, KC_F,     KC_Q,                         KC_M,     KC_R,   KC_D,    KC_Y,    KC_P,     KC_EQL, \
       KC_LALT, KC_A,    KC_O,    KC_E,   KC_I,     KC_U,                         KC_G,     KC_T,   KC_K,    KC_S,    KC_N,     TD_QUOT, \
-      KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,     KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     KC_H,   KC_J,    KC_L,    TD_SCLN,  TD_MINS, \
+      KC_LSFT, KC_Z,    KC_X,    KC_C,   KC_V,     KC_W,     TD_LBRC,  TD_RBRC,  KC_B,     KC_H,   KC_J,    KC_L,    TD_SCLN,  KC_MINS, \
       KC_LCTL, KC_LGUI, KC_LALT, KANA,   CTLT_ESC, LTLO_SPC, SFTT_TAB, KC_BSPC,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, LTAD_GUI, KC_BSLS \
       ),
 
@@ -312,7 +309,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * `-------------------------------------------------------------------------------------------------'
    */
   [_RAISE] = LAYOUT( \
-      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    TD_MINS, \
+      KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, \
       _______, KC_PSCR, KC_PGUP, KC_HOME, KC_END,  KC_PGDN,                   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_F11,  KC_F12,  \
       _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_LPRN, KC_RPRN, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______, \
       _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
