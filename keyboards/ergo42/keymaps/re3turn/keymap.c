@@ -28,9 +28,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define _______ KC_TRNS
 #define XXXXXXX KC_NO
 
-#define LTSY_SPC LT(_RAISE, KC_SPC)
-#define LTME_ENT LT(_LOWER, KC_ENT)
-#define LTLO_BS LT(_RAISE, KC_BSPC)
+#define LTLO_SPC LT(_LOWER, KC_SPC)
+#define LTRA_ENT LT(_RAISE, KC_ENT)
+#define LTLO_BS LT(_LOWER, KC_BSPC)
 #define IME LALT(KC_GRV)
 #define CTLT_ESC CTL_T(KC_ESC)
 #define SFTT_TAB SFT_T(KC_TAB)
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   GUI_SPC, KC_Q,    KC_W,    KC_E, KC_R,     KC_T,     KC_LPRN,  KC_RPRN,  KC_Y,     KC_U,   KC_I,    KC_O,    KC_P,    KC_PSCR, \
   KC_LALT, KC_A,    KC_S,    KC_D, KC_F,     KC_G,     TD_LBRC,  TD_RBRC,  KC_H,     KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT, \
   KC_LSFT, KC_Z,    KC_X,    KC_C, KC_V,     KC_B,     KC_GRV,   KC_EQL,   KC_N,     KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_MINS, \
-  KC_LCTL, KC_LGUI, KC_LALT, IME,  CTLT_ESC, LTSY_SPC, SFTT_TAB, LTLO_BS,  LTME_ENT, KC_DEL, GUI_TAB, KC_RALT, KC_RGUI, KC_BSLS \
+  KC_LCTL, KC_LGUI, KC_LALT, IME,  CTLT_ESC, LTLO_SPC, SFTT_TAB, LTLO_BS,  LTRA_ENT, KC_DEL, GUI_TAB, KC_RALT, KC_RGUI, KC_BSLS \
 ),
 
 /* Lower
