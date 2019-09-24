@@ -78,11 +78,11 @@ cd qmk_firmware
 build
 
 ```bash
-make ergodash/rev2:re3turn
+make ergodash/rev1:re3turn
 ```
 
 flash to keyboard
 
 ```bash
-make ergodash:re3turn:avrdude
+make ergodash/rev1:re3turn:avrdude
 ```
