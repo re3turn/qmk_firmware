@@ -2,13 +2,17 @@
 
 extern keymap_config_t keymap_config;
 
-#define _QWERTY 0
-#define _LOWER 1
-#define _RAISE 2
-#define _ADJUST 16
+enum layer_number {
+    _QWERTY = 0,
+    _QWERTY_MAC,
+    _LOWER,
+    _RAISE,
+    _ADJUST
+};
 
 enum custom_keycodes {
   QWERTY = SAFE_RANGE,
+  QWRTMAC,
   LOWER,
   RAISE,
   ADJUST,
@@ -37,10 +41,15 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 #define LTLO_BS LT(_LOWER, KC_BSPC)
 #define LTRA_ENT LT(_RAISE, KC_ENT)
 #define IME LALT(KC_GRV)
+#define IME_MAC LCTL(KC_SPC)
+#define CMDT_ESC CMD_T(KC_ESC)
+#define SFTT_TAB SFT_T(KC_TAB)
 #define CTLT_ESC CTL_T(KC_ESC)
 #define SFTT_TAB SFT_T(KC_TAB)
 #define GUI_TAB LGUI(KC_TAB)
 #define GUI_SPC LGUI(KC_SPC)
+#define CMD_TAB LGUI(KC_TAB)
+#define CMD_SPC LGUI(KC_SPC)
 #define TD_LBRC TD(TD_LBRC_LCBR)
 #define TD_RBRC TD(TD_RBRC_RCBR)
 #define TD_SCLN TD(TD_SCLN_COLN)
@@ -68,6 +77,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LALT, KC_A,    KC_S,    KC_D,    KC_F, KC_G,     KC_GRV,                         KC_EQL,  KC_H,     KC_J, KC_K,    KC_L,    KC_SCLN,  KC_QUOT, \
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V, KC_B,     IME,                            KC_BSLS, KC_N,     KC_M, KC_COMM, KC_DOT,  KC_SLSH,  KC_MINS, \
     KC_LCTL, KC_LGUI, KC_LALT, CTLT_ESC,      LTLO_SPC, SFTT_TAB, XXXXXXX,     XXXXXXX, LTLO_BS, LTRA_ENT,       KC_DEL,  GUI_TAB, LTAD_GUI, KC_LALT \
+  ),
+
+    /* Qwerty for Mac
+   * ,----------------------------------------------------------------------------------------------------------------.
+   * |CMDSPC|   1  |   2  |   3  |   4  |   5  |   (  |              |   )  |   6  |   7  |   8  |   9  |   0  |Power |
+   * |------+------+------+------+------+------+------+--------------+------+------+------+------+------+------+------|
+   * | Tab  |   Q  |   W  |   E  |   R  |   T  |   [  |              |   ]  |   Y  |   U  |   I  |   O  |   P  |  =   |
+   * |------+------+------+------+------+------+------+--------------+------+------+------+------+------+------+------|
+   * | Cmd  |   A  |   S  |   D  |   F  |   G  |   `  |              |   =  |   H  |   J  |   K  |   L  |   ;  |  '   |
+   * |------+------+------+------+------+------+---------------------+------+------+------+------+------+------+------|
+   * | Shift|   Z  |   X  |   C  |   V  |   B  |  IME |              |   \  |   N  |   M  |   ,  |   .  |   /  |  -   |
+   * |-------------+------+------+------+------+------+------++------+------+------+------+------+------+-------------|
+   * | Ctrl |  Opt |  Cmd | Esc/ ||||||||Space/| Tab/ |      ||      | BS/  |Enter/||||||||  Del | Cmd+ | Cmd/ |  Opt |
+   * |      |      |      | Ctrl ||||||||~Lower| Shift|      ||      |~Lower|~Raise||||||||      | Tab  |~Adjst|      |
+   * ,----------------------------------------------------------------------------------------------------------------.
+   */
+  [_QWERTY_MAC] = LAYOUT( \
+    CMD_SPC, KC_1,    KC_2,    KC_3,    KC_4, KC_5,     KC_LPRN,                        KC_RPRN, KC_6,     KC_7, KC_8,    KC_9,    KC_0,     KC_PWR, \
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R, KC_T,     TD_LBRC,                        TD_RBRC, KC_Y,     KC_U, KC_I,    KC_O,    KC_P,     KC_EQL, \
+    KC_LGUI, KC_A,    KC_S,    KC_D,    KC_F, KC_G,     KC_GRV,                         KC_EQL,  KC_H,     KC_J, KC_K,    KC_L,    KC_SCLN,  KC_QUOT, \
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V, KC_B,     IME_MAC,                        KC_BSLS, KC_N,     KC_M, KC_COMM, KC_DOT,  KC_SLSH,  KC_MINS, \
+    KC_LCTL, KC_LALT, KC_LGUI, CMDT_ESC,      LTLO_SPC, SFTT_TAB, XXXXXXX,     XXXXXXX, LTLO_BS, LTRA_ENT,       KC_DEL,  CMD_TAB, LTAD_GUI, KC_LALT \
   ),
 
   /* Lower
@@ -118,7 +149,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+---------------------+------+------+------+------+------+------+------|
    * |      | Reset|RGB ON|  MODE|  HUE-|  HUE+|      |              |      |  SAT-|  SAT+|  VAL-|  VAL+|      |      |
    * |------+------+------+------+------+------+---------------------+------+------+------+------+------+------+------|
-   * |      |      |      |      |      |      |      |              |      |      |      |      |      |      |      |
+   * |      |      |  Win |  Mac |      |      |      |              |      |      |      |      |      |      |      |
    * |------+------+------+------+------+------+---------------------+------+------+------+------+------+------+------|
    * |      |      |      |      |      |      |      |              |      |      |      |      |      |      |      |
    * |-------------+------+------+------+------+------+------++------+------+------+------+------+------+-------------|
@@ -128,7 +159,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT(
     _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
     _______, RESET  , RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI,_______,                       _______, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, _______, \
-    _______, _______, BL_TOGG, BL_BRTG, BL_INC , BL_DEC ,_______,                       _______, _______, _______, _______, _______, _______, _______, \
+    _______, _______, QWERTY , QWRTMAC, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, _______, _______, _______, _______,_______,                       _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, _______, _______,          _______,_______,_______,       _______,_______, _______,          _______, _______, _______, _______  \
   )
@@ -147,8 +178,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case QWERTY:
       if (record->event.pressed) {
-         print("mode just switched to qwerty and this is a huge string\n");
+        print("mode just switched to qwerty and this is a huge string\n");
         set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case QWRTMAC: /* QWERTY for Mac */
+      if (record->event.pressed) {
+        print("mode just switched to qwerty for mac and this is a huge string\n");
+        set_single_persistent_default_layer(_QWERTY_MAC);
       }
       return false;
       break;
